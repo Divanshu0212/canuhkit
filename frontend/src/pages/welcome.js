@@ -11,7 +11,7 @@ const Welcome = () => {
         <div className='bg-[#2ECC71] right-0 rounded-md px-3 text-2xl py-2 mt-3' onClick={()=>navigate('/login')}>
           Login
         </div>
-        <div className='bg-[#2ECC71] right-0 rounded-md px-3 text-2xl py-2 mt-3'>
+        <div className='bg-[#2ECC71] right-0 rounded-md px-3 text-2xl py-2 mt-3' onClick={()=>navigate('/signup')}>
           Sign Up
         </div>
       </div>
