@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -8,14 +6,14 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
+      <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/signUp" element={<SignUp/>}/>
-          <Route path="/adminPanel" element={<AdminPanel/>}/>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/adminPanel" element={<AdminPanel />} />
         </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
     </>
   )
 }
