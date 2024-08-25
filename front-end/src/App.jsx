@@ -8,7 +8,15 @@ function App() {
 
   return (
     <>
-      <div className='font-bold bg-black text-white p-5 m-5'>Hello World</div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/signUp" element={<SignUp/>}/>
+          <Route path="/adminPanel" element={<AdminPanel/>}/>
+        </Routes>
+      </BrowserRouter>
+
     </>
   )
 }
