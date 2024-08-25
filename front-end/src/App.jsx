@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <div className='font-bold bg-black text-white p-5'>Hello World</div>
+      <Navbar/>
     </>
   )
 }
