@@ -15,8 +15,15 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/signUp" element={<SignUp/>}/>
           <Route path="/adminPanel" element={<AdminPanel/>}/>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/adminPanel" element={<AdminPanel />} />
         </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
     </>
   )
 }
