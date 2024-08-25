@@ -1,0 +1,19 @@
+
+.cut-corner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-top: 40px solid #1c1c1c;
+    /* Match this color to the background gradient */
+}
+
+/* Adding gradient effect to the form container */
+.gradient-bg {
+    background: linear-gradient(to bottom, #32CD32, #2ECC71);
+    /* Green gradient */
+}
+

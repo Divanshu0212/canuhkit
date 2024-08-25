@@ -58,7 +58,7 @@ const Home = () => {
               desktopImages.map((imageURL, index) => {
                 return (
                   <div className='h-full min-w-full min-h-full transition-all' key={imageURL} style={{ transform: `translateX(-${currentImage * 100}%)` }}>
-                    <img src={imageURL} className='w-[90%] h-full' />
+                    <img src={imageURL} className='w-[60%] h-full' />
                   </div>
                 )
               })

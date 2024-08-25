@@ -3,91 +3,84 @@ import { Link, useNavigate } from 'react-router-dom';
 import SummaryApi from '../common';
 import { toast } from 'react-toastify';
 import Context from '../context';
+import './Login.css'
+import Header from '../Components/Header';
+import Footer from '../Components/Footer';
 
 const Login = () => {
-    const [data, setData]= useState({
-        email : "",
-        password : ""
+    const [data, setData] = useState({
+        email: "",
+        password: ""
     })
 
     const navigate = useNavigate()
 
     const handleOnChange = (e) => {
-        const {name,value} = e.target
+        const { name, value } = e.target
 
-        setData ((preve)=>{
+        setData((preve) => {
             return {
                 ...preve,
-                [name] : value
+                [name]: value
             }
         })
     }
 
-    const handleSubmit = async(e) =>{
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const dataResponse = await fetch(SummaryApi.logIn.url,{
-            method : SummaryApi.logIn.method,
-            credentials : "include",
-            headers : {
-                "content-type" : "application/json"
+        const dataResponse = await fetch(SummaryApi.logIn.url, {
+            method: SummaryApi.logIn.method,
+            credentials: "include",
+            headers: {
+                "content-type": "application/json"
             },
-            body : JSON.stringify(data)
+            body: JSON.stringify(data)
         })
-        
+
         const dataApi = await dataResponse.json()
 
-        if(dataApi.success) {
+        if (dataApi.success) {
             toast.success(dataApi.message)
             navigate('/home')
         }
 
-        if (dataApi.error){
+        if (dataApi.error) {
             toast.error(dataApi.message)
         }
     }
-  return (
-    <section id='login'>
-        <div className='mx-auto container p-4'>
-
-            <div className='bg-white p-5 w-full max-w-sm mx-auto'>
-
-                <form className='pt-6 flex flex-col gap-2' onSubmit={handleSubmit}>
-                    <div>
-                        <label>Email :</label>
-                        <div className='bg-slate-100 p-2'>
-                            <input 
-                                type="email" 
+    return (
+        <div className='bg-[#1c1c1c]'>
+            <Header />
+            <div className='flex items-center justify-center min-h-screen bg-[#1c1c1c]'>
+                <div className="relative gradient-bg p-8 w-[600px] box-border shadow-lg cut-corner ">
+                    <h1 className="text-2xl mb-8 text-left font-bold text-shadow">ENTER THE ARENA</h1>
+                    <form onSubmit={handleSubmit}>
+                        <div className="flex items-center mb-6">
+                            <label for="username" className="w-24">Email:</label>
+                            <input id="username" type="email"
                                 placeholder='enter email'
                                 name='email'
                                 value={data.email}
-                                onChange={handleOnChange}
-                                className='w-full h-full outline-none bg-transparent'/>
+                                onChange={handleOnChange} className="flex-1 bg-gray-800 p-2 rounded text-gray-200 ml-4" required />
                         </div>
-                    </div>
-
-                    <div>
-                        <label>Password :</label>
-                        <div className='bg-slate-100 p-2 flex'>
-                            <input 
-                                type="password"
+                        <div className="flex items-center mb-6">
+                            <label for="password" className='w-24'>Password:</label>
+                            <input id="password" type="password"
                                 placeholder='enter password'
                                 value={data.password}
                                 name='password'
-                                onChange={handleOnChange}
-                                className='w-full h-full outline-none bg-transparent'/>
+                                onChange={handleOnChange} className="flex-1 bg-gray-800 p-2 rounded text-gray-200 ml-4" required />
                         </div>
-                        <Link to={"/forgot-password"} className='block w-fit ml-auto hover:underline hover:text-red-600'>
-                            Forgot Password ?
-                        </Link>
-                    </div>
-                    <button className='hover:bg-red-700 bg-red-600 text-white px-6 py-2 w-full max-w-[150px] rounded-full hover:scale-110 transition-all m-auto block mt-6'>Login</button>
-                </form>
+                        <div className="flex justify-center">
+                            <button className='w-1/3 bg-gray-900 text-white p-2 rounded hover:bg-gray-800 transition duration-300 cursor-pointer'>Login</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-
+            <Footer />
         </div>
-    </section>
-  )
+    )
 }
 
 export default Login
