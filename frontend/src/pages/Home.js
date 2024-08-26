@@ -10,12 +10,25 @@ import { FaAngleLeft } from 'react-icons/fa6'
 import { useEffect, useState } from "react";
 import { category_list, games_list } from '../assets/assets.js'
 import { Link } from 'react-router-dom'
+import SummaryApi from '../common/index.js'
 
-const Home = () => {
+const Home = async() => {
 
   const [currentImage, setCurrentImage] = useState(0)
 
   const items = games_list
+
+  const dataResponse = await fetch(SummaryApi.current_user.url, {
+    method: SummaryApi.current_user.method,
+    credentials : "include",
+    headers: {
+        "content-type": "application/json"
+    }
+})
+
+const dataApi = await dataResponse.json()
+console.log(dataApi);
+
 
   const desktopImages = [
     image1,
@@ -80,14 +93,14 @@ const Home = () => {
         })}
       </div>
       <div>
-      <ul>
-        {items.map(item => (
-          <li key={item.gameId}>
-            <Link to={`/game/${item.gameId}`}>{item.game_name}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+        <ul>
+          {items.map(item => (
+            <li key={item.gameId}>
+              <Link to={`/game/${item.gameId}`}>{item.game_name}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
       <Footer />
     </div>
   )

@@ -5,6 +5,8 @@ const addReview = require('../controller/reviews/addReview')
 const authToken = require('../middleware/authToken')
 const userDetailsController = require('../controller/user/userDetails.js')
 const userLogout = require('../controller/user/userLogout')
+const getReviewsDetails = require('../controller/reviews/getReviewsDetails.js')
+const getReviewsController = require('../controller/reviews/getReviews.js')
 
 const router = express.Router()
 
@@ -14,5 +16,8 @@ router.get("/user-details",authToken,userDetailsController)
 router.get("/userLogout",userLogout)
 
 router.post("/add-review",authToken,addReview)
+router.post("/reviews-details",authToken,getReviewsDetails)
+router.get("/get-reviews",authToken,getReviewsController)
+
 
 module.exports = router

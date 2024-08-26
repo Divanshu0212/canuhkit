@@ -20,6 +20,14 @@ const SummaryApi = {
     addReview : {
         url : `${backendDomain}/api/add-review`,
         method : 'post'
+    },
+    allReviews : {
+        url : `${backendDomain}/api/get-reviews`,
+        method : 'get'
+    },
+    reviewsDetails : {
+        url : `${backendDomain}/api/reviews-details`,
+        method : 'post'
     }
 
 }
