@@ -4,6 +4,7 @@ import Footer from '../Components/Footer'
 import AddReview from '../Components/AddReview'
 import { useParams } from 'react-router-dom'
 import { games_list } from '../assets/assets'
+import AllReviews from './AllReviews'
 
 const GamePage = () => {
     const { id } = useParams()
@@ -63,15 +64,7 @@ const GamePage = () => {
                     <div class="mt-8 bg-gray-800 p-6 rounded-lg text-white">
                         <h2 class="text-green-500 text-2xl font-semibold mb-4">Comments</h2>
 
-                        <div class="mb-4">
-                            <p class="text-green-400 font-semibold">User123:</p>
-                            <p class="text-gray-300">This game looks amazing! Can't wait to try it out.</p>
-                        </div>
-
-                        <div class="mb-4">
-                            <p class="text-green-400 font-semibold">GamerGirl:</p>
-                            <p class="text-gray-300">I love the graphics! The details are stunning.</p>
-                        </div>
+                        <AllReviews/>
 
                         <AddReview />
                     </div>

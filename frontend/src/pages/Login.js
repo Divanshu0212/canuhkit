@@ -39,10 +39,11 @@ const Login = () => {
         })
 
         const dataApi = await dataResponse.json()
+        console.log(dataApi)
 
         if (dataApi.success) {
             toast.success(dataApi.message)
-            const token = 
+            localStorage.setItem('authToken',dataApi.token)
             navigate('/home')
         }
 
