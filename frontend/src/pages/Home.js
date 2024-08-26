@@ -43,7 +43,7 @@ const Home = () => {
   }, [currentImage])
 
   return (
-    <div>
+    <div className='scrollbar-none'>
       <Header />
       <div className='container min-w-full mx-auto px-4 group bg-[#1c1c1c] h-[100%] '>
         <div className='h-64 md:h-72 relative'>
@@ -58,7 +58,7 @@ const Home = () => {
               desktopImages.map((imageURL, index) => {
                 return (
                   <div className='h-full min-w-full min-h-full transition-all' key={imageURL} style={{ transform: `translateX(-${currentImage * 100}%)` }}>
-                    <img src={imageURL} className='w-[60%] h-full' />
+                    <img src={imageURL} className='w-[100%] h-full' />
                   </div>
                 )
               })
