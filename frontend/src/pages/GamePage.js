@@ -27,7 +27,7 @@ const GamePage = () => {
     return (
         <div>
             <Header />
-            <div className="bg-gray-800 flex items-center justify-center min-h-screen">
+            <div className="bg-gray-800 flex items-center justify-center min-h-screen mt-32">
                 <div class="w-full h-screen bg-gray-900 p-8 overflow-y-auto">
 
                     <div

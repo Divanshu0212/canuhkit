@@ -17,7 +17,7 @@ const Welcome = () => {
       </div>
       <div className='flex justify-center items-center size-100'>
         <img src="/LogoMakerCa-1724589494272.png" alt=""
-          className='size-[700px] animate-pulse' />
+          className='size-[600px] animate-pulse' />
       </div>
       <p className='text-[#2ADC35] text-center relative bottom-12 text-3xl font-bold font-mono'>Squad Up And Chill With Your Fellow Dawgs!</p>
 

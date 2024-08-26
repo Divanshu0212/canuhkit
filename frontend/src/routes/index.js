@@ -29,7 +29,7 @@ const router = createBrowserRouter([
                 element : <Login/>
             },
             {
-                path : "/game-category/:category_name",
+                path : "/game-category/:id",
                 element : <GameCategory/>
             },
             {

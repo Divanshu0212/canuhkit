@@ -9,15 +9,15 @@ import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
 
-  const navigate=useNavigate()
+  const navigate = useNavigate()
 
   const user = useSelector(state => state?.user?.user)
   const dispatch = useDispatch()
 
-  const handleLogout = async() => {
-    const fetchData = await fetch(SummaryApi.logout_user.url,{
-      method : SummaryApi.logout_user.method,
-      credentials : "include"
+  const handleLogout = async () => {
+    const fetchData = await fetch(SummaryApi.logout_user.url, {
+      method: SummaryApi.logout_user.method,
+      credentials: "include"
     })
 
     const data = await fetchData.json()
@@ -34,22 +34,15 @@ const Header = () => {
   }
 
   return (
-    <div>
-      <div className='flex justify-between bg-[#0a8a3f]'>
-        <img src='/LogoMakerCa-1724589494272.png' className='w-20' />
-        <div className='flex items-center justify-center gap-3  border-1 border-black'>
-          <BiSearch color='white' />
-          <input type='text' placeholder='Search Here' className='bg-[#0a8a3f] outline-[1px] text-white' />
-          <button className='bg-red-600 text-white rounded-md p-1'>Search</button>
-        </div>
+    <div class="flex top-0 z-40 w-full justify-between items-center py-4 px-8 absolute bg-gradient-to-b from-gray-900 to-black">
+      <img class="w-24 h-24 rounded-full top-left-circle" src='/LogoMakerCa-1724589494272.png' onClick={navigate("/home")}/>
+
+      <div class="flex justify-center items-center w-full">
+        <input type="text" placeholder="Discover and explore your favorite games right here......." class="w-3/4 p-2 rounded-lg text-black placeholder-green-500"/>
+          <button class="ml-2 bg-green-500 text-black p-2 rounded-lg font-semibold font-mono">Search</button>
       </div>
-      <div>
-        {
-          user?._id && (
-            <button onClick={handleLogout} className='px-3 py-1 rounded-full text-white bg-red-600 hover:bg-red-700'>Logout</button>
-          )
-        }
-      </div>
+      {
+        user?._id && (<button onClick={handleLogout} class="bg-green-500 text-black p-2 rounded-lg font-semibold font-mono">Logout</button>)}
     </div>
   )
 }

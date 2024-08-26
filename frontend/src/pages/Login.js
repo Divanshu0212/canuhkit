@@ -56,7 +56,7 @@ const Login = () => {
     }
     return (
         <div className='bg-[#1c1c1c]'>
-            <Header />
+       
             <div className='flex items-center justify-center bg-[#1c1c1c] h-[75vh]'>
                 <div className="relative gradient-bg p-8 w-[600px] box-border shadow-lg cut-corner ">
                     <h1 className="text-2xl mb-8 text-white text-left font-bold text-shadow">ENTER THE ARENA</h1>
@@ -84,7 +84,6 @@ const Login = () => {
                     </form>
                 </div>
             </div>
-            <Footer />
         </div>
     )
 }
