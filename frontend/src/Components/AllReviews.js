@@ -1,23 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import SummaryApi from '../common'
-import ReviewCard from '../Components/ReviewCard'
+import ReviewCard from './ReviewCard'
+import Context from '../context'
 
 const AllReviews = () => {
+
+  const {fetchUserDetails}=useContext(Context)
 
   const [allReviews,setAllReviews] = useState([])
 
   const fetchAllReviews = async() => {
-    const response = await fetch(SummaryApi.allReviews.url)
+    const response = await fetch(SummaryApi.allReviews.url,{
+      method: SummaryApi.allReviews.method
+    })
     const dataResponse = await response.json()
 
     setAllReviews(dataResponse?.data || [] )
 
-    console.log(dataResponse);
+    console.log("aryan",dataResponse);
     
   }
 
   useEffect(()=>{
     fetchAllReviews()
+    fetchUserDetails()
   },[])
 
   return (

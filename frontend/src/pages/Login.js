@@ -15,6 +15,8 @@ const Login = () => {
 
     const navigate = useNavigate()
 
+    const {fetchUserDetails} = useContext(Context)
+
     const handleOnChange = (e) => {
         const { name, value } = e.target
 
@@ -43,8 +45,9 @@ const Login = () => {
 
         if (dataApi.success) {
             toast.success(dataApi.message)
-            localStorage.setItem('authToken',dataApi.token)
+            fetchUserDetails()
             navigate('/home')
+            
         }
 
         if (dataApi.error) {

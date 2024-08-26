@@ -2,7 +2,7 @@ const reviewModel = require("../../models/reviewModel")
 
 const getReviewsController =async (req,res)=>{
     try{
-        const allReviews = await reviewModel.find().sort({ createdAt : -1 })
+        const allReviews = await reviewModel.find()
         
         res.json({
             message : "All Reviews",

@@ -1,12 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import SummaryApi from '../common'
 import { toast } from 'react-toastify'
 import './StarRatings.css'
+import Context from '../context'
+import { useSelector } from 'react-redux'
 
 const AddReview = ({gameid}) => {
+
+    
+    const {fetchUserDetails}=useContext(Context)
+    const user=useSelector(state=>state?.user?.user)
+
     const [data, setData] = useState({
         gameId: "",
         userId: "",
+        name:"",
         comment: "",
         rating: ""
     })
@@ -30,6 +38,8 @@ const AddReview = ({gameid}) => {
         setRating(index)
         data.rating = index
         data.gameId=gameid
+        data.name=user.name
+        data.userId=user._id
     }
 
     const handleSubmit = async (e) => {

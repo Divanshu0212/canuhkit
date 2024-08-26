@@ -4,8 +4,12 @@ import SummaryApi from '../common'
 import { toast } from 'react-toastify'
 import { setUserDetails } from '../store/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
 
 const Header = () => {
+
+  const navigate=useNavigate()
 
   const user = useSelector(state => state?.user?.user)
   const dispatch = useDispatch()
@@ -21,6 +25,7 @@ const Header = () => {
     if (data.success) {
       toast.success(data.message)
       dispatch(setUserDetails(null))
+      navigate('/')
     }
 
     if (data.error) {

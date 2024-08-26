@@ -1,19 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState,useContext,useEffect } from 'react'
 import Header from '../Components/Header'
 import Footer from '../Components/Footer'
 import AddReview from '../Components/AddReview'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { games_list } from '../assets/assets'
+import AllReviews from '../Components/AllReviews'
+import Context from '../context'
 
 const GamePage = () => {
     const { id } = useParams()
     const navigate=useNavigate();
+
+    const {fetchUserDetails}=useContext(Context)
 
     const items = games_list
 
     const item = items.find(item => item.gameId === id);
 
     console.log(item.game_banner);
+
+    useEffect(()=>{
+      fetchUserDetails()
+    }, [])
 
 
     return (
