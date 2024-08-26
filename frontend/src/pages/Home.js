@@ -8,11 +8,14 @@ import image4 from '../ss images/image4.png'
 import { FaAngleRight } from 'react-icons/fa6'
 import { FaAngleLeft } from 'react-icons/fa6'
 import { useEffect, useState } from "react";
-import { category_list } from '../assets/assets.js'
+import { category_list, games_list } from '../assets/assets.js'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
 
   const [currentImage, setCurrentImage] = useState(0)
+
+  const items = games_list
 
   const desktopImages = [
     image1,
@@ -76,6 +79,15 @@ const Home = () => {
           )
         })}
       </div>
+      <div>
+      <ul>
+        {items.map(item => (
+          <li key={item.gameId}>
+            <Link to={`/game/${item.gameId}`}>{item.game_name}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
       <Footer />
     </div>
   )
