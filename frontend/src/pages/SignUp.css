@@ -1,0 +1,40 @@
+.cut-corner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-top: 40px solid #1c1c1c;
+}
+
+/* Circular photobox with avatar text */
+.photo-box::after {
+    content: 'AVATAR';
+    color: white;
+    font-size: 0.8em;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+/* Gradient text box styling */
+.gradient-input {
+    background: linear-gradient(to right, #0F2027, #203A43, #2C5364);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+.gradient-bg {
+    background: linear-gradient(to bottom, #32CD32, #2ECC71); /* Green gradient */
+}
+.gradient-input::placeholder {
+    color: grey;
+}
