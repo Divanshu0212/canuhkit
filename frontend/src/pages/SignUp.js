@@ -76,7 +76,6 @@ const SignUp = () => {
 
     return (
         <>
-        <Header/>
             <section className='bg-[#1c1c1c] min-h-full w-full flex flex-col justify-center items-center'>
                 <div className="relative gradient-bg p-8 w-[600px] box-border shadow-lg cut-corner">
 
@@ -142,7 +141,6 @@ const SignUp = () => {
                 </div>
 
             </section>
-            <Footer/>
         </>
     )
 

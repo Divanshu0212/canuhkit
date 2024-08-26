@@ -3,8 +3,7 @@ import SummaryApi from '../common'
 import { toast } from 'react-toastify'
 import './StarRatings.css'
 
-const AddReview = ({
-}) => {
+const AddReview = ({gameid}) => {
     const [data, setData] = useState({
         gameId: "",
         userId: "",
@@ -25,10 +24,12 @@ const AddReview = ({
         })
 
     }
+    
 
     const handleRatingChange = (index) => {
         setRating(index)
         data.rating = index
+        data.gameId=gameid
     }
 
     const handleSubmit = async (e) => {
