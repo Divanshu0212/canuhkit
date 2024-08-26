@@ -52,12 +52,12 @@ const Login = () => {
     return (
         <div className='bg-[#1c1c1c]'>
             <Header />
-            <div className='flex items-center justify-center min-h-screen bg-[#1c1c1c]'>
+            <div className='flex items-center justify-center bg-[#1c1c1c] h-[75vh]'>
                 <div className="relative gradient-bg p-8 w-[600px] box-border shadow-lg cut-corner ">
-                    <h1 className="text-2xl mb-8 text-left font-bold text-shadow">ENTER THE ARENA</h1>
+                    <h1 className="text-2xl mb-8 text-white text-left font-bold text-shadow">ENTER THE ARENA</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="flex items-center mb-6">
-                            <label for="username" className="w-24">Email:</label>
+                            <label for="username" className="w-24 text-white text-lg">Email:</label>
                             <input id="username" type="email"
                                 placeholder='enter email'
                                 name='email'
@@ -65,7 +65,7 @@ const Login = () => {
                                 onChange={handleOnChange} className="flex-1 bg-gray-800 p-2 rounded text-gray-200 ml-4" required />
                         </div>
                         <div className="flex items-center mb-6">
-                            <label for="password" className='w-24'>Password:</label>
+                            <label for="password" className='w-24 text-white text-lg'>Password:</label>
                             <input id="password" type="password"
                                 placeholder='enter password'
                                 value={data.password}
@@ -75,6 +75,7 @@ const Login = () => {
                         <div className="flex justify-center">
                             <button className='w-1/3 bg-gray-900 text-white p-2 rounded hover:bg-gray-800 transition duration-300 cursor-pointer'>Login</button>
                         </div>
+                        
                     </form>
                 </div>
             </div>
