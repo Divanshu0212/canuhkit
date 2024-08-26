@@ -5,6 +5,7 @@ import Welcome from '../pages/welcome'
 import SignUp from '../pages/SignUp'
 import Login from '../pages/Login'
 import GamePage from '../pages/GamePage'
+import GameCategory from '../pages/GameCategory'
 
 const router = createBrowserRouter([
     {
@@ -28,8 +29,12 @@ const router = createBrowserRouter([
                 element : <Login/>
             },
             {
-                path:"/horzapage",
-                element:<GamePage/>
+                path : "/game-category/:category_name",
+                element : <GameCategory/>
+            },
+            {
+                path : "/game/:id",
+                element : <GamePage/>
             }
         ]
     }
