@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for matching gradient styles */
+        
+        .gradient-input {
+            background: linear-gradient(to right, #0F2027, #203A43, #2C5364);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(to bottom, #32CD32, #2ECC71);
+            /* Green gradient */
+        }
+        
+        .gradient-input::placeholder {
+            color: grey;
+        }
+        
+        .disabled {
+            background: #555;
+            color: #aaa;
+        }
+        
+        .photo-holder {
+            width: 39%;
+            height: 39%;
+        }
+        
+        .profile-container {
+            padding-top: 10px;
+        }
+        
+        .save-changes {
+            background: linear-gradient(to right, #32CD32, #2ECC71);
+            color: black;
+        }
+        
+        .save-changes:hover {
+            background: #203A43;
+            color: white;
+        }
+        
+        .record-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: #333;
+            border-radius: 5px;
+        }
+        
+        .record-row button {
+            margin-left: 10px;
+            background: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 4px 8px;
+            cursor: pointer;
+        }
+        
+        .record-row button:hover {
+            background: #555;
+        }
+        
+        .record-row input {
+            background: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 4px 8px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="w-full py-4 bg-green-500 text-center text-3xl font-bold shadow-lg">
+        PLAYER PROFILE
+    </header>
+
+    <!-- Main Container -->
+    <div class="flex flex-col flex-grow w-full">
+
+        <!-- Personal Details Section -->
+        <div class="w-full p-6">
+            <h2 class="text-2xl font-bold mb-4 text-green-500">Personal Details</h2>
+            <div class="flex flex-col items-center">
+                <div class="flex justify-center items-center w-4/5 my-4">
+                    <!-- Profile Picture -->
+                    <div id="photo-holder" class="w-48 h-48 bg-gray-800 rounded-full mr-8 relative overflow-hidden flex justify-center items-center photo-holder">
+                        <input type="file" id="profile-pic-input" class="absolute w-full h-full opacity-0 z-10 cursor-pointer" accept="image/*">
+                        <img id="profile-pic" src="IMG-20220928-WA0041_resize_67_compress68.jpg" alt="Profile Picture" class="w-full h-full object-cover absolute top-0 left-0 z-1" onerror="this.src='IMG-20220928-WA0041_resize_67_compress68.jpg';">
+                        <div class="absolute text-green-600 bottom-2 text-sm">AVATAR</div>
+                    </div>
+
+                    <!-- Profile Details -->
+                    <div class="flex flex-col space-y-4 text-lg">
+                        <div class="flex items-center">
+                            <label for="name" class="w-32">Name:</label>
+                            <input type="text" id="name" name="name" placeholder="Enter name..." class="gradient-input ml-4" value="Ananya Yadav" disabled>
+                        </div>
+                        <div class="flex items-center">
+                            <label for="email" class="w-32">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Enter email..." class="gradient-input ml-4" value="ananya_yadav@gmail.com" disabled>
+                        </div>
+                        <div class="flex items-center">
+                            <label for="username" class="w-32">Username:</label>
+                            <input type="text" id="username" name="username" placeholder="Enter username..." class="gradient-input ml-4" value="GunX2" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Your Profile Button -->
+                <div class="flex justify-center mb-4">
+                    <button id="edit-profile-btn" class="bg-black text-green-500 px-6 py-2 rounded hover:bg-green-500 hover:text-black transition duration-300">Edit Your Profile</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Separator Line -->
+        <div class="w-full h-px bg-green-500 my-6"></div>
+
+        <!-- Gaming Records Section -->
+        <div class="w-full p-6 flex-grow">
+            <h2 class="text-2xl font-bold mb-4 text-green-500">Gaming Records</h2>
+            <div id="game-details" class="flex flex-col w-full text-lg">
+                <div class="flex mb-4">
+                    <select id="game-dropdown" name="game" class="gradient-bg text-black p-4 rounded w-1/3 text-center bg-green-500">
+                        <option disabled selected>Choose a game...</option>
+                        <option value="game1">BGMI</option>
+                        <option value="game2">Candy Crush Saga</option>
+                        <option value="game3">Subway Surfers</option>
+                        <option value="game4">Destiny 2</option>
+                        <option value="game5">Assetto Corsa Competizione</option>
+                        <option value="game6">Ghost of Tsushima</option>
+                        <option value="game7">Red Dead Redemption</option>
+                        <option value="game8">GTA V</option>
+                        <option value="game9">Portal 2</option>
+                        <option value="game10">Brain out</option>
+                        <option value="game11">Return of the Obra Dinn</option>
+                        <option value="game12">Mario Kart</option>
+                        <option value="game13">Forza Horizon 5</option>
+                        <option value="game14">Call of Duty</option>
+                        <option value="game15">Among us</option>
+                    </select>
+                    <input type="text" id="game-id" name="game_id" placeholder="Game ID" class="gradient-bg placeholder-black text-black p-2 rounded small-input text-center w-[400px] ml-4">
+                    <input type="text" id="skill-level" name="skill_level" placeholder="Skill Level" class="gradient-bg placeholder-black text-black p-2 rounded small-input text-center w-[400px] ml-4">
+                    <button id="add-record-btn" class="bg-black text-green-500 px-4 py-2 rounded ml-4 hover:bg-green-500 hover:text-black transition duration-300">Add Record</button>
+                </div>
+                <div id="records-list" class="flex flex-col space-y-2">
+                    <!-- Records will be added here dynamically -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Handle profile picture upload and display
+        document.getElementById('profile-pic-input').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const profilePic = document.getElementById('profile-pic');
+                    profilePic.src = e.target.result;
+                    profilePic.classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Handle Edit and Save button functionality
+        document.getElementById('edit-profile-btn').addEventListener('click', function() {
+            const inputs = document.querySelectorAll('.gradient-input');
+            const photoHolder = document.getElementById('profile-pic-input');
+            const editBtn = document.getElementById('edit-profile-btn');
+
+            inputs.forEach(input => {
+                input.disabled = !input.disabled;
+                input.classList.toggle('disabled');
+            });
+
+            photoHolder.disabled = !photoHolder.disabled;
+
+            if (editBtn.innerText === 'Edit Your Profile') {
+                editBtn.innerText = 'Save Changes';
+                editBtn.classList.add('save-changes');
+            } else {
+                editBtn.innerText = 'Edit Your Profile';
+                editBtn.classList.remove('save-changes');
+            }
+        });
+
+        // Handle Add Record button functionality
+        document.getElementById('add-record-btn').addEventListener('click', function() {
+            const gameDropdown = document.getElementById('game-dropdown');
+            const gameId = document.getElementById('game-id').value;
+            const skillLevel = document.getElementById('skill-level').value;
+
+            if (gameDropdown.value && gameId && skillLevel) {
+                const recordList = document.getElementById('records-list');
+                const existingRecord = Array.from(recordList.children).find(row => {
+                    const gameName = row.querySelector('.record-game').innerText;
+                    const currentGame = gameDropdown.options[gameDropdown.selectedIndex].text;
+                    const currentGameId = row.querySelector('.edit-record').value;
+                    return gameName === currentGame && currentGameId === gameId;
+                });
+
+                if (existingRecord) {
+                    existingRecord.querySelectorAll('.edit-record')[1].value = skillLevel;
+                } else {
+                    const recordRow = document.createElement('div');
+                    recordRow.className = 'record-row';
+                    recordRow.innerHTML = `
+                        <div class="flex-1">
+                            <span class="record-game">${gameDropdown.options[gameDropdown.selectedIndex].text}</span> 
+                            - ID: <input type="text" value="${gameId}" class="edit-record" disabled>
+                            , Skill Level: <input type="text" value="${skillLevel}" class="edit-record" disabled>
+                        </div>
+                        <button class="edit-btn">Edit</button>
+                    `;
+
+                    recordList.appendChild(recordRow);
+                }
+
+                // Clear the input fields
+                document.getElementById('game-id').value = '';
+                document.getElementById('skill-level').value = '';
+            }
+        });
+
+        // Handle Edit button functionality in records
+        document.getElementById('records-list').addEventListener('click', function(e) {
+            if (e.target && e.target.classList.contains('edit-btn')) {
+                const recordRow = e.target.parentElement;
+                const inputs = recordRow.querySelectorAll('.edit-record');
+                inputs.forEach(input => {
+                    input.disabled = !input.disabled;
+                });
+
+                if (e.target.innerText === 'Edit') {
+                    e.target.innerText = 'Save';
+                } else {
+                    e.target.innerText = 'Edit';
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

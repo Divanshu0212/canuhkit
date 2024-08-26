@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Profile - Read Only</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for matching gradient styles */
+        
+        .gradient-input {
+            background: linear-gradient(to right, #0F2027, #203A43, #2C5364);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(to bottom, #32CD32, #2ECC71);
+            /* Green gradient */
+        }
+        
+        .gradient-input::placeholder {
+            color: grey;
+        }
+        
+        .disabled {
+            background: #555;
+            color: #aaa;
+        }
+        
+        .photo-holder {
+            width: 39%;
+            height: 39%;
+        }
+        
+        .profile-container {
+            padding-top: 10px;
+        }
+        
+        .record-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: #333;
+            border-radius: 5px;
+        }
+        
+        .record-row button {
+            margin-left: 10px;
+            background: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 4px 8px;
+            cursor: pointer;
+        }
+        
+        .record-row button:hover {
+            background: #555;
+        }
+        
+        .make-friend-btn {
+            background: black;
+            color: green;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 2px solid green;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .make-friend-btn:hover {
+            background-color: green;
+            color: black;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="w-full py-4 bg-green-500 text-center text-3xl font-bold shadow-lg">
+        PLAYER PROFILE
+    </header>
+
+    <!-- Main Container -->
+    <div class="flex flex-col flex-grow w-full">
+
+        <!-- Personal Details Section -->
+        <div class="w-full p-6">
+            <h2 class="text-2xl font-bold mb-4 text-green-500">Personal Details</h2>
+            <div class="flex flex-col items-center">
+                <div class="flex justify-center items-center w-4/5 my-4">
+                    <!-- Profile Picture -->
+                    <div id="photo-holder" class="w-48 h-48 bg-gray-800 rounded-full mr-8 relative overflow-hidden flex justify-center items-center photo-holder">
+                        <img id="profile-pic" src="IMG-20220928-WA0041_resize_67_compress68.jpg" alt="Profile Picture" class="w-full h-full object-cover absolute top-0 left-0 z-1" onerror="this.src='IMG-20220928-WA0041_resize_67_compress68.jpg';">
+                        <div class="absolute text-green-600 bottom-2 text-sm">AVATAR</div>
+                    </div>
+
+                    <!-- Profile Details -->
+                    <div class="flex flex-col space-y-4 text-lg">
+                        <div class="flex items-center">
+                            <label for="name" class="w-32">Name:</label>
+                            <input type="text" id="name" name="name" placeholder="Enter name..." class="gradient-input ml-4 disabled" value="Ananya Yadav" disabled>
+                        </div>
+                        <div class="flex items-center">
+                            <label for="email" class="w-32">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Enter email..." class="gradient-input ml-4 disabled" value="ananya_yadav@gmail.com" disabled>
+                        </div>
+                        <div class="flex items-center">
+                            <label for="username" class="w-32">Username:</label>
+                            <input type="text" id="username" name="username" placeholder="Enter username..." class="gradient-input ml-4 disabled" value="GunX2" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- "Make a Friend" Button -->
+                <div class="flex justify-center mb-4">
+                    <button class="make-friend-btn hover:bg-green-500 hover:text-black">Make a Friend</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Separator Line -->
+        <div class="w-full h-px bg-green-500 my-6"></div>
+
+        <!-- Gaming Records Section -->
+        <div class="w-full p-6 flex-grow">
+            <h2 class="text-2xl font-bold mb-4 text-green-500">Gaming Records</h2>
+            <div id="game-details" class="flex flex-col w-full text-lg">
+                <div id="records-list" class="flex flex-col space-y-2">
+                    <!-- Example static record entries -->
+                    <div class="record-row">
+                        <div class="flex-1">Game 1 - ID: 12345, Skill Level: Expert</div>
+                    </div>
+                    <div class="record-row">
+                        <div class="flex-1">Game 2 - ID: 67890, Skill Level: Intermediate</div>
+                    </div>
+                    <!-- Add more records as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
