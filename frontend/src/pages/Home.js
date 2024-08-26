@@ -53,7 +53,7 @@ const Home = () => {
               <button onClick={nextImage} className='text-slate-400 rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity'><FaAngleRight /></button>
             </div>
           </div>
-          <div className='hidden md:flex h-[400px] w-[105rem] overflow-hidden'>
+          <div className='flex h-[400px] w-full overflow-hidden'>
             {
               desktopImages.map((imageURL, index) => {
                 return (
