@@ -1,23 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../Components/Header'
 import Footer from '../Components/Footer'
+import AddReview from '../Components/AddReview'
+import { useParams } from 'react-router-dom'
+import { games_list } from '../assets/assets'
 
 const GamePage = () => {
+    const { id } = useParams()
+
+    const items = games_list
+
+    const item = items.find(item => item.gameId === id);
+
+    console.log(item.game_banner);
+
+
     return (
         <div>
-            <Header/>
+            <Header />
             <div className="bg-gray-800 flex items-center justify-center min-h-screen">
                 <div class="w-full h-screen bg-gray-900 p-8 overflow-y-auto">
 
-                    <div class="relative w-full h-1/2 bg-[url('https://www.operationsports.com/wp-content/uploads/2020/07/assetto-corsa-competizione-banner-1.jpg')] bg-cover bg-center rounded-lg mb-8">
+                    <div
+                        style={{ backgroundImage: `url(${item.game_banner})` }}
+                        className='relative w-full h-1/2 bg-cover bg-center rounded-lg mb-8'>
 
                         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900 rounded-lg"></div>
-                        <span class="relative text-gray-500 z-10 flex items-center justify-center h-full">Game banner</span>
                     </div>
 
 
-                    <div class="flex justify-between items-center">
-                        <h1 class="text-green-500 text-6xl font-bold">Forza Horizon 5</h1>
+                    <div class="flex items-center justify-between w-full">
+                        <div className='flex items-center'><img className='w-32 mr-3' src={item.game_icon} alt='' />
+                            <h1 class="text-green-500 text-5xl font-bold">{item.game_name}</h1></div>
                         <div class="relative group">
                             <div class="cursor-pointer bg-green-500 h-8 w-8 pb-0.5 rounded-full hover:bg-green-700 flex items-center justify-center text-white">
 
@@ -42,7 +56,7 @@ const GamePage = () => {
 
 
                     <p class="text-green-500 mt-6 text-lg">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        {item.game_description}
                     </p>
 
 
@@ -59,19 +73,7 @@ const GamePage = () => {
                             <p class="text-gray-300">I love the graphics! The details are stunning.</p>
                         </div>
 
-                        <form>
-                            <textarea class="w-full bg-gray-700 text-white p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Add a comment..."></textarea>
-                            <div class="flex space-x-2">
-
-                                <svg class="w-5 h-5 fill-current text-gray-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957c.14.433.55.732 1.004.732h4.148c.969 0 1.371 1.24.588 1.81l-3.352 2.478c-.362.268-.52.751-.407 1.185l1.287 3.957c.3.921-.755 1.688-1.538 1.168l-3.351-2.478c-.362-.268-.848-.268-1.21 0l-3.351 2.478c-.783.52-1.838-.247-1.538-1.168l1.287-3.957c.113-.434-.045-.917-.407-1.185L1.5 9.426c-.783-.57-.381-1.81.588-1.81h4.148c.454 0 .863-.299 1.004-.732l1.286-3.957z" /></svg>
-                                <svg class="w-5 h-5 fill-current text-gray-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957c.14.433.55.732 1.004.732h4.148c.969 0 1.371 1.24.588 1.81l-3.352 2.478c-.362.268-.52.751-.407 1.185l1.287 3.957c.3.921-.755 1.688-1.538 1.168l-3.351-2.478c-.362-.268-.848-.268-1.21 0l-3.351 2.478c-.783.52-1.838-.247-1.538-1.168l1.287-3.957c.113-.434-.045-.917-.407-1.185L1.5 9.426c-.783-.57-.381-1.81.588-1.81h4.148c.454 0 .863-.299 1.004-.732l1.286-3.957z" /></svg>
-                                <svg class="w-5 h-5 fill-current text-gray-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957c.14.433.55.732 1.004.732h4.148c.969 0 1.371 1.24.588 1.81l-3.352 2.478c-.362.268-.52.751-.407 1.185l1.287 3.957c.3.921-.755 1.688-1.538 1.168l-3.351-2.478c-.362-.268-.848-.268-1.21 0l-3.351 2.478c-.783.52-1.838-.247-1.538-1.168l1.287-3.957c.113-.434-.045-.917-.407-1.185L1.5 9.426c-.783-.57-.381-1.81.588-1.81h4.148c.454 0 .863-.299 1.004-.732l1.286-3.957z" /></svg>
-                                <svg class="w-5 h-5 fill-current text-gray-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957c.14.433.55.732 1.004.732h4.148c.969 0 1.371 1.24.588 1.81l-3.352 2.478c-.362.268-.52.751-.407 1.185l1.287 3.957c.3.921-.755 1.688-1.538 1.168l-3.351-2.478c-.362-.268-.848-.268-1.21 0l-3.351 2.478c-.783.52-1.838-.247-1.538-1.168l1.287-3.957c.113-.434-.045-.917-.407-1.185L1.5 9.426c-.783-.57-.381-1.81.588-1.81h4.148c.454 0 .863-.299 1.004-.732l1.286-3.957z" /></svg>
-                                <svg class="w-5 h-5 fill-current text-gray-400" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957c.14.433.55.732 1.004.732h4.148c.969 0 1.371 1.24.588 1.81l-3.352 2.478c-.362.268-.52.751-.407 1.185l1.287 3.957c.3.921-.755 1.688-1.538 1.168l-3.351-2.478c-.362-.268-.848-.268-1.21 0l-3.351 2.478c-.783.52-1.838-.247-1.538-1.168l1.287-3.957c.113-.434-.045-.917-.407-1.185L1.5 9.426c-.783-.57-.381-1.81.588-1.81h4.148c.454 0 .863-.299 1.004-.732l1.286-3.957z" /></svg>
-                            </div>
-                            <button class="mt-4 bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded-lg">Post Comment</button>
-
-                        </form>
+                        <AddReview />
                     </div>
 
 
@@ -114,7 +116,7 @@ const GamePage = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

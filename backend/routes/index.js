@@ -8,12 +8,10 @@ const userLogout = require('../controller/user/userLogout')
 
 const router = express.Router()
 
-
 router.post("/signup",userSignUpController)
 router.post("/login",userSignInController)
 router.get("/user-details",authToken,userDetailsController)
 router.get("/userLogout",userLogout)
-
 
 router.post("/add-review",authToken,addReview)
 
